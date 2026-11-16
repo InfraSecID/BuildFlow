@@ -1,137 +1,279 @@
 # BuildFlow
 
-> Kumpulan aturan Markdown modular untuk membantu AI coding agent mengikuti praktik engineering lintas bahasa, platform, arsitektur, DevOps, dan keamanan.
+> A collection of modular Markdown rules to help AI coding agents follow engineering best practices across languages, platforms, architecture, DevOps, and security.
 
-[![CI](https://img.shields.io/badge/CI-belum_dikonfigurasi-lightgrey)]()
-[![Coverage](https://img.shields.io/badge/coverage-N%2FA-lightgrey)]()
-[![License](https://img.shields.io/badge/license-belum_ditetapkan-lightgrey)]()
-[![Version](https://img.shields.io/badge/version-belum_ditetapkan-lightgrey)]()
+## Badges
 
----
+[![CI](https://img.shields.io/badge/CI-not_configured-lightgrey)]()
+[![Coverage](https://img.shields.io/badge/coverage-not_available-lightgrey)]()
+[![License](https://img.shields.io/badge/license-MIT-blue)]()
+[![Version](https://img.shields.io/badge/version-not_released-lightgrey)]()
 
-## 📋 Daftar Isi
+## Table of Contents
 
-- [Tentang Project](#-tentang-project)
-- [Fitur Utama](#-fitur-utama)
-- [Tech Stack](#-tech-stack)
-- [Arsitektur](#-arsitektur)
-- [Prasyarat](#-prasyarat)
-- [Instalasi](#-instalasi)
-- [Konfigurasi](#-konfigurasi)
-- [Cara Menjalankan](#-cara-menjalankan)
-- [Testing](#-testing)
-- [Build & Deploy](#-build--deploy)
-- [Struktur Folder](#-struktur-folder)
-- [API Documentation](#-api-documentation)
-- [Keamanan](#-keamanan)
-- [Kontribusi](#-kontribusi)
-- [Lisensi](#-lisensi)
-- [Kontak](#-kontak)
+1. [BuildFlow](#buildflow)
+2. [Badges](#badges)
+3. [Table of Contents](#table-of-contents)
+4. [About](#about)
+5. [Features](#features)
+6. [Tech Stack](#tech-stack)
+7. [Architecture](#architecture)
+8. [Prerequisites](#prerequisites)
+9. [Installation](#installation)
+10. [Configuration](#configuration)
+11. [Multi-AI Compatibility](#-multi-ai-compatibility)
+12. [Usage](#usage)
+13. [Testing](#testing)
+14. [Build & Deploy](#build--deploy)
+15. [Folder Structure](#folder-structure)
+16. [Security](#security)
+17. [Contributing](#contributing)
+18. [License](#license)
+19. [Contact](#contact)
+20. [Acknowledgments](#acknowledgments)
+21. [Footer](#footer)
 
----
+## About
 
-## 📖 Tentang Project
+BuildFlow is a reusable collection of 10 modular Markdown rule files in `.agents/rules/`. It helps AI coding agents and development teams apply consistent engineering practices without treating the rules as application code or an automatic loader.
 
-BuildFlow adalah kumpulan panduan dan checklist berbentuk Markdown di `.agents/rules/`. Isinya ditujukan untuk membantu AI coding agent dan developer menerapkan praktik yang konsisten saat merancang, menulis, menguji, dan meninjau software.
+The project is intended for developers, maintainers, and teams working across multiple stacks and roles. Its role-oriented guidance covers programming, web, Android, iOS, frontend, backend, DevOps, networking, DevSecOps, and cybersecurity. The rules address a common problem: engineering guidance can become fragmented across teams and projects. BuildFlow groups that guidance into focused files that teams can review and reuse.
 
-Aturannya mencakup workflow engineering umum, berbagai bahasa dan framework, platform web dan mobile, arsitektur, DevOps, serta keamanan aplikasi dan supply chain. Ini adalah dokumentasi/prompt rules, bukan aplikasi yang dapat dijalankan: repository ini tidak berisi kode aplikasi, dependency manifest, layanan, atau mekanisme untuk memuat rules secara otomatis.
+The repository contains documentation, not a runnable application. Whether an agent loads or interprets the rule metadata depends on that agent and its configuration.
 
-Target pengguna adalah developer dan tim yang ingin memberikan pedoman teknis sebagai konteks bagi AI coding agent. Dukungan pemuatan otomatis bergantung pada tool yang digunakan; verifikasi konfigurasi tool tersebut secara terpisah.
+## Features
 
-## ✨ Fitur Utama
+- **10 modular rules:** Focused guidance for common workflows, languages, platforms, frameworks, DevOps, security, architecture, role checklists, README authoring, and agent behavior.
+- **Multi-role coverage:** Guidance for engineering and security roles, including programmer, frontend, backend, DevOps, network, DevSecOps, and cybersecurity workflows.
+- **Always-on guidance:** Nine rule files use `trigger: always_on` metadata for general guidance.
+- **Task-aware guidance:** `09-readme-prompt.md` uses `trigger: model_decision` metadata for task-specific README work.
+- **Context-efficient structure:** Focused Markdown files help keep rule selection relevant and make individual topics easier to reuse.
+- **Reusable across projects:** Copy `.agents/rules/` into a project that uses a compatible AI coding agent.
+- **Multi-AI compatibility guidance:** Explains native instruction formats and bridge options for supported tools.
+- **English-language documentation:** The rules are written in English for consistent use across teams.
+- **Planned templates:** Reusable project templates are planned; they are not included yet.
+- **Planned dashboard:** A rules management dashboard is planned; it is not included yet.
 
-- ✅ **Aturan workflow engineering** — mencakup error handling, dependency, konfigurasi, testing, Git, dokumentasi, dan Definition of Done (`01-common.md`).
-- ✅ **Panduan multi-bahasa dan platform** — dari TypeScript, Python, Go, Rust, Kotlin, Swift hingga web, Android, iOS, desktop, game, dan IoT (`02-languages.md`, `03-platforms.md`).
-- ✅ **Panduan framework** — meliputi framework frontend, mobile, dan backend yang disebut di `04-frameworks.md`.
-- ✅ **Panduan arsitektur dan DevOps** — membahas pola arsitektur, sistem terdistribusi, CI/CD, container, cloud, observability, dan reliability (`05-devops.md`, `07-architecture.md`).
-- ✅ **Panduan keamanan dan checklist** — berisi praktik keamanan, threat modeling, security testing, dan checklist lintas role (`06-security.md`, `08-checklist.md`).
-- ✅ **Panduan dokumentasi dan penggunaan agent** — aturan README serta identitas/protokol agent (`09-readme-prompt.md`, `10-agents-md.md`).
-- 🚧 **Integrasi dan validasi otomatis** — belum ditemukan konfigurasi loader, test, lint, atau pipeline di repository ini.
-- 📅 **Roadmap fitur** — belum didefinisikan.
+## Tech Stack
 
-## 🛠️ Tech Stack
+| Layer | Technology / Status |
+|---|---|
+| Documentation format | Markdown |
+| Rule metadata | YAML frontmatter |
+| Version control | Git |
+| Application runtime | None; this is a documentation repository |
+| Application dependencies | None |
+| Automated tests and CI | Not configured |
+| Referenced technologies | Examples in the rules only; they are not BuildFlow dependencies |
 
-| Layer | Teknologi / Status |
-|-------|--------------------|
-| Format konten | Markdown |
-| Susunan rules | File Markdown di `.agents/rules/`, beberapa memakai frontmatter `trigger` |
-| Runtime aplikasi | Tidak ada |
-| Frontend / Backend | Tidak ada |
-| Database / Cache / Queue | Tidak ada |
-| DevOps / Cloud / CI/CD | Belum dikonfigurasi di repository ini |
-| Monitoring | Tidak ada konfigurasi monitoring di repository ini |
+## Architecture
 
-Nama tool, framework, database, dan layanan cloud yang muncul di dokumen rules adalah contoh/pedoman untuk proyek yang mengadopsinya; itu bukan dependency atau layanan yang digunakan oleh BuildFlow.
-
-## 🏗️ Arsitektur
-
-BuildFlow adalah repository dokumentasi berbasis file, bukan monolith aplikasi, microservice, atau sistem serverless. Alur konseptual penggunaannya:
+BuildFlow has no application runtime, services, or configured rule-loading mechanism. Its repository structure organizes guidance for use by a developer and a compatible AI agent:
 
 ```text
-┌─────────────────────┐     membaca / memberi konteks     ┌─────────────────────┐
-│ Developer atau tim  │ ─────────────────────────────────▶│ AI coding agent     │
-└─────────────────────┘                                   └──────────┬──────────┘
-                                                                     │
-                                                         memuat sesuai dukungan tool
-                                                                     ▼
-                                                         ┌─────────────────────┐
-                                                         │ .agents/rules/*.md  │
-                                                         └─────────────────────┘
+Developer or team
+       |
+       | selects relevant guidance
+       v
+AI coding agent <---- reads ---- .agents/rules/*.md
+       |
+       v
+Project work guided by the selected rules
 ```
 
-Diagram ini menggambarkan pemakaian dokumentasi, bukan integrasi otomatis yang dikonfigurasi oleh repository. Tidak ada berkas ADR di tree saat ini.
+The `trigger` values are metadata. Their behavior depends on the host agent; the repository itself does not implement automatic loading.
 
-## 📦 Prasyarat
+## Prerequisites
 
-- Git hanya diperlukan jika rules diambil atau dibagikan melalui repository Git.
-- Editor teks/Markdown untuk membaca atau menyalin rules.
-- AI coding agent bersifat opsional; pemuatan otomatis bergantung pada dukungan dan konfigurasi agent tersebut.
+- **Git** to clone or share the repository.
+- **An AI coding agent** that can read project Markdown rules. Examples include:
+  - [Google Antigravity and the `agy` CLI](https://antigravity.google/product/antigravity-cli)
+  - [Cursor](https://cursor.com/)
+  - [Windsurf](https://windsurf.com/)
+  - [GitHub Copilot](https://github.com/features/copilot)
+- A text editor or IDE to inspect and adapt the rules.
 
-Tidak ada versi runtime, database, Docker, atau tool build yang disyaratkan oleh repository ini.
+Agent-specific setup and support for `.agents/rules/` vary. Check the documentation for your selected tool.
 
-## 🚀 Instalasi
+## Installation
 
-Repository ini tidak mempunyai package manager atau proses instalasi dependency. Untuk menggunakan rules dalam proyek lain, salin direktori `.agents/rules/` ke root proyek tujuan:
+Clone BuildFlow, copy its rules into a target project, then open that project with a compatible agent:
 
 ```bash
-cp -R /path/to/BuildFlow/.agents /path/to/proyek-tujuan/
+git clone https://github.com/InfraSecID/BuildFlow.git
+cp -R BuildFlow/.agents /path/to/your-project/
+cd /path/to/your-project
+agy
 ```
 
-Ganti kedua path contoh di atas dengan path lokal yang benar. Jika menggunakan salinan lokal repository ini sebagai workspace, tidak diperlukan instalasi tambahan.
+The `agy` command starts the Antigravity CLI when it is installed. For Cursor, Windsurf, GitHub Copilot, or another agent, open the target project using that tool's documented workflow.
 
-## ⚙️ Konfigurasi
+## Configuration
 
-Tidak ada konfigurasi environment yang didefinisikan dalam repository saat ini:
+Each rule file uses YAML frontmatter to declare its trigger metadata. For example:
 
-| Nama | Wajib | Keterangan |
-|------|-------|------------|
-| Environment variable | — | Tidak ditemukan |
-| `.env.example` | — | Tidak tersedia; jangan mengasumsikan ada konfigurasi aplikasi |
-| Konfigurasi loader/agent | — | Tidak tersedia; ikuti dokumentasi tool AI yang dipakai |
+```yaml
+---
+trigger: always_on
+---
+```
 
-Frontmatter `trigger` yang ada pada sebagian rules adalah metadata di dalam dokumen; dukungan dan perilakunya bergantung pada tool yang membaca file tersebut.
+Task-specific guidance can use:
 
-## ▶️ Cara Menjalankan
+```yaml
+---
+trigger: model_decision
+description: Prompt to generate or update README.md
+---
+```
 
-BuildFlow tidak memiliki server atau executable. Buka file rules yang relevan dan berikan sebagai konteks kepada AI coding agent, atau gunakan mekanisme pemuatan rules yang didukung oleh tool pilihan Anda.
+In this repository, nine files use `always_on` and `09-readme-prompt.md` uses `model_decision`. The values indicate different intended activation scopes: general guidance versus guidance selected for relevant tasks. The host agent determines how, or whether, these values affect rule loading.
 
-Untuk melihat daftar rules:
+No application environment variables or runtime settings are defined.
+
+## 🤖 Multi-AI Compatibility
+
+BuildFlow keeps its source rules in `.agents/rules/`. AI tools differ in their native instruction files and in how they interpret frontmatter. Use the table below as a starting point, then verify behavior against the documentation for your tool and version.
+
+| AI / Tool | Native `AGENTS.md` | Native `.agents/rules/` | Notes |
+|---|---|---|---|
+| [Antigravity / agy](https://antigravity.google/product/antigravity-cli) | Yes | Intended target; verify version | Check current Antigravity documentation for rule discovery and frontmatter behavior. |
+| [Cursor](https://cursor.com/docs/rules) | Yes | No | Native project rules use `.cursor/rules/*.mdc`; `AGENTS.md` is also supported. |
+| [GitHub Copilot](https://docs.github.com/en/copilot/concepts/prompting-and-context/custom-instructions) | Yes, for supported agent surfaces | No | Repository instructions can also use `.github/copilot-instructions.md`; support varies by client and feature. |
+| [Claude Code](https://code.claude.com/docs/en/memory) | Yes | No | Reads `AGENTS.md` as project instructions; `CLAUDE.md` also supports imports. |
+| [Windsurf / Devin Local](https://docs.devin.ai/desktop/devin-local/customizations.md) | Yes | No | Current Devin Local rules use `.devin/rules/*.md`; legacy Windsurf rule paths are imported. |
+| [Gemini CLI](https://geminicli.com/docs/cli/gemini-md/) | Via `GEMINI.md` import or configuration | No | Uses `GEMINI.md` by default and supports `@` imports. |
+| [Codex](https://developers.openai.com/codex/guides/agents-md) | Yes | No | Reads `AGENTS.md` instructions. |
+
+Native file discovery does not guarantee identical interpretation of `trigger` frontmatter. In particular, verify Antigravity's `.agents/rules/` discovery behavior in the version you use.
+
+### Recommended Approach: Bridge + Sync
+
+Use tool-specific instruction files to point agents to a shared `AGENTS.md`, then synchronize those files when a tool does not support the shared format directly.
+
+#### Step 1 — Create Bridge Files
+
+Create a root-level `AGENTS.md` that tells compatible agents where the source rules live:
+
+```markdown
+# BuildFlow Rules
+
+Read and follow the relevant guidance in `.agents/rules/` for each task.
+The files in `.agents/rules/` are the source of truth.
+```
+
+Add tool-specific files when required:
+
+- **Claude Code:** `CLAUDE.md` can contain `@AGENTS.md`. Claude Code also reads `AGENTS.md` directly.
+- **Cursor:** Create `.cursor/rules/buildflow.mdc` and reference `AGENTS.md` and the relevant source rules.
+- **GitHub Copilot:** Create `.github/copilot-instructions.md` with a pointer to `AGENTS.md` and relevant files in `.agents/rules/`.
+- **Gemini CLI:** Create `GEMINI.md` with `@./AGENTS.md`.
+- **Windsurf / Devin Local:** Use `AGENTS.md` or the current `.devin/rules/` format.
+- **Codex:** Place `AGENTS.md` at the project root.
+
+Example symlinks for tools that support the referenced files:
 
 ```bash
-ls -la .agents/rules/
+ln -s AGENTS.md CLAUDE.md
+ln -s AGENTS.md GEMINI.md
 ```
 
-## 🧪 Testing
+Example Cursor rule:
 
-Belum ada test suite, test runner, atau script pengujian yang ditemukan. Tidak ada perintah testing otomatis yang dapat dijalankan dari repository ini.
+```markdown
+---
+description: BuildFlow project guidance
+globs: "**/*"
+alwaysApply: true
+---
 
-## 📦 Build & Deploy
+Follow the relevant guidance in AGENTS.md and `.agents/rules/`.
+```
 
-Tidak ada proses build, Dockerfile, konfigurasi deployment, atau CI/CD yang ditemukan. Repository ini digunakan sebagai dokumen; perubahan dapat dibagikan melalui mekanisme version control atau distribusi yang disediakan maintainer.
+Example GitHub Copilot instructions:
 
-## 🗂️ Struktur Folder
+```markdown
+Read AGENTS.md and follow the relevant guidance in `.agents/rules/`.
+```
 
-Struktur berikut sesuai dengan file yang tersedia:
+Import syntax, symlink behavior, and rule loading differ by tool. Confirm each target file is actually loaded before relying on it.
+
+#### Step 2 — Use a Sync Tool
+
+For automated generation of tool-specific instruction files, [agnostic-ai](https://github.com/Chemaclass/agnostic-ai) is a third-party option. It is not a BuildFlow dependency. Review its documentation and generated changes before committing them.
+
+```bash
+npm install -g agnostic-ai
+agnostic-ai init
+agnostic-ai sync --plan
+agnostic-ai sync
+agnostic-ai sync --check
+```
+
+Initialize the tool and choose its targets before syncing. Do not assume it imports `.agents/rules/` or preserves existing instruction files without checking its plan.
+
+#### Step 3 — Manual Copy
+
+- **Antigravity / agy:** Use `.agents/rules/` if supported by your installed version.
+- **Cursor, Windsurf / Devin Local, and Codex:** Use `AGENTS.md` or the tool's documented native rule format.
+- **Claude Code:** Use `AGENTS.md` directly, or a `CLAUDE.md` file that imports it.
+- **GitHub Copilot:** Use `AGENTS.md` on supported agent surfaces or `.github/copilot-instructions.md`.
+- **Gemini CLI:** Use `GEMINI.md`, optionally importing `AGENTS.md`.
+
+BuildFlow provides one source collection, not a universal loader. For reliable results, use each tool's documented format and confirm that the intended rules appear in its active context.
+
+## Usage
+
+Copy the rules into your project, then ask your compatible agent to follow the relevant guidance. The role and task triggers documented in `08-checklist.md` include:
+
+| Trigger | Intended focus |
+|---|---|
+| `@review` | Multi-role code analysis |
+| `@security` | Cybersecurity review |
+| `@devops` | CI/CD and infrastructure |
+| `@web` | Web development |
+| `@backend` | APIs, databases, and validation |
+| `@threat` | Threat modeling |
+| `@rules <stack>` | Rules tailored to a technology stack |
+| `@readme` | Generate or update a project README |
+
+Example prompts:
+
+- `@review Check this change for correctness, security, and test coverage.`
+- `@rules Next.js Summarize the relevant stack guidance.`
+- `@readme Review the project files and update its README without inventing features.`
+
+Trigger handling varies by agent. If a trigger is not recognized, provide the rule file or relevant guidance explicitly.
+
+## Testing
+
+BuildFlow does not currently include an automated test suite. You can verify the rule file count and trigger metadata with:
+
+```bash
+test "$(find .agents/rules -maxdepth 1 -type f -name '*.md' | wc -l)" -eq 10
+grep -q '^trigger: always_on$' .agents/rules/01-common.md
+grep -q '^trigger: model_decision$' .agents/rules/09-readme-prompt.md
+```
+
+Review rule changes manually for accuracy, consistency, and compatibility with the intended agent.
+
+## Build & Deploy
+
+There is no build or deployment pipeline. To publish changes to the configured GitHub remote:
+
+```bash
+git add README.md CONTRIBUTING.md SECURITY.md CODE_OF_CONDUCT.md CHANGELOG.md LICENSE .agents/rules/
+git commit -m "docs: update BuildFlow guidance"
+git push
+```
+
+To create a ZIP archive from the current commit:
+
+```bash
+git archive --format=zip --output=BuildFlow.zip HEAD
+```
+
+## Folder Structure
 
 ```text
 BuildFlow/
@@ -147,38 +289,62 @@ BuildFlow/
 │       ├── 08-checklist.md
 │       ├── 09-readme-prompt.md
 │       └── 10-agents-md.md
-└── README.md
+├── CHANGELOG.md
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── LICENSE
+├── README.md
+└── SECURITY.md
 ```
 
-## 📚 API Documentation
+## Security
 
-Tidak ada API, route, atau spesifikasi OpenAPI/Swagger di repository ini.
+BuildFlow provides security guidance; it does not enforce security controls in adopting projects. See [SECURITY.md](SECURITY.md) for vulnerability reporting instructions.
 
-## 🔒 Keamanan
+- Never add credentials, tokens, or sensitive data to rules or examples.
+- Treat rule content as guidance and validate recommendations against the project's threat model.
+- Verify security controls in the actual implementation and CI/CD pipeline.
+- Do not assume that a technology or control mentioned in a rule is configured in your project.
 
-`06-security.md` dan bagian terkait di rules lain berisi panduan keamanan untuk proyek yang mengadopsinya, termasuk validasi input, pengelolaan secret, prinsip least privilege, auth/session, threat modeling, dan security testing. Panduan tersebut merupakan materi dokumentasi; keberadaannya tidak berarti BuildFlow menjalankan kontrol keamanan atau menjamin proyek pengguna aman.
+Before sharing changes:
 
-Checklist saat menerapkan rules:
+- [ ] Check for secrets and sensitive information.
+- [ ] Review security recommendations for accuracy and context.
+- [ ] Confirm that examples do not imply unimplemented protections.
 
-- Jangan menaruh secret atau data sensitif dalam file rules maupun contoh yang dibagikan.
-- Tinjau relevansi dan akurasi rekomendasi terhadap konteks, stack, dan threat model proyek.
-- Verifikasi kontrol keamanan pada implementasi dan pipeline proyek yang mengadopsi rules.
-- Hindari menganggap contoh teknologi di dokumen sebagai konfigurasi yang sudah aktif.
+## Contributing
 
-## 🤝 Kontribusi
+Contributions to the rules and documentation are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for the suggested workflow and contribution standards.
 
-Kontribusi dapat dilakukan dengan memperbarui dokumen rules atau README berdasarkan praktik yang dapat diverifikasi. Repository ini belum menyediakan `CONTRIBUTING.md` atau instruksi Pull Request khusus.
+1. Fork the repository and create a focused branch.
+2. Edit the relevant Markdown rule or documentation.
+3. Review the change for clarity, consistency, and technical accuracy.
+4. Check for secrets and unsupported claims.
+5. Open a pull request with a concise description of the change.
 
-Sebelum mengirim perubahan:
+Contribution checklist:
 
-1. Pastikan saran sesuai konteks dan tidak menyiratkan kontrol/fitur yang belum ada.
-2. Periksa konsistensi istilah, struktur, dan tautan antar-dokumen.
-3. Jika repository Git hosting tersedia, ajukan perubahan melalui mekanisme review yang berlaku di sana.
+- [ ] Keep changes focused on the relevant rule or documentation.
+- [ ] Preserve Markdown structure and valid links.
+- [ ] Verify that examples and claims match the repository.
+- [ ] Explain the motivation and impact in the pull request.
 
-## 📄 Lisensi
+## License
 
-Lisensi repository belum dinyatakan dan file lisensi tidak ditemukan. Status lisensi: **[perlu dilengkapi]**. Pastikan lisensi ditetapkan oleh pemilik proyek sebelum mendistribusikan atau menggunakan ulang konten.
+MIT License — see [LICENSE](LICENSE).
 
-## 📬 Kontak
+## Contact
 
-Kontak maintainer atau kanal dukungan belum dicantumkan: **[perlu dilengkapi]**.
+- **Maintainer:** Hidayat ([@InfraSecID](https://github.com/InfraSecID/))
+- **Repository:** [InfraSecID/BuildFlow](https://github.com/InfraSecID/BuildFlow)
+- **GitHub:** [https://github.com/InfraSecID/](https://github.com/InfraSecID/)
+- **Issues:** [GitHub Issues](https://github.com/InfraSecID/BuildFlow/issues)
+- **Discussions:** [GitHub Discussions](https://github.com/InfraSecID/BuildFlow/discussions)
+
+## Acknowledgments
+
+Inspired by the `AGENTS.md` convention and built by InfraSecID.
+
+## Footer
+
+> Build systems that outlive the hype.
